@@ -19,12 +19,37 @@ Steps:
 6. After iterating through the entire array, if no duplicates are found, return false.
  */
 
-function hasDuplicates(arr) {
-   
-}
+//function hasDuplicates(arr) {}
 
 // Example usage
+//const numbers1 = [1, 2, 3, 4, 5, 6];
+//const numbers2 = [1, 2, 3, 4, 2, 6];
+//console.log(hasDuplicates(numbers1)); // Output: false
+//console.log(hasDuplicates(numbers2)); // Output: true
+
+//-----
+
+function hasDuplicates(arr) {
+    let resultToReturn = false;
+
+    for (let i = 0; i < arr.length; i++) { 
+        for (let j = 0; j < arr.length; j++) {
+            if (i !== j && arr[i] === arr[j]) {                                  
+                resultToReturn = true;
+                break;
+            }
+        }
+        if (resultToReturn) {
+            break;
+        }
+    }
+
+    console.log(resultToReturn ? 'true: duplicates exist' : 'false: duplicates do not exist');
+    return resultToReturn;
+}
+
 const numbers1 = [1, 2, 3, 4, 5, 6];
 const numbers2 = [1, 2, 3, 4, 2, 6];
+
 console.log(hasDuplicates(numbers1)); // Output: false
 console.log(hasDuplicates(numbers2)); // Output: true

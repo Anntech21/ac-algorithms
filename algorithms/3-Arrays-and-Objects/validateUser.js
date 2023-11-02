@@ -17,16 +17,38 @@ Steps
 3. Return true if a matching user is found; false otherwise.
  */
 
-function validateUserCredentials(users, inputUsername, inputPassword) {
-    
-}
+//function validateUserCredentials(users, inputUsername, inputPassword) {
+//}
 
 // Example usage
+//const registeredUsers = [
+ //   { username: "user1", password: "password123" },
+ //   { username: "user2", password: "secretword" },
+ //   { username: "admin", password: "admin123" }
+//];
+//const username = "user1";
+//const password = "password123";
+//console.log(validateUserCredentials(registeredUsers, username, password)); // Output: true
+
+
+//-------------
+
 const registeredUsers = [
     { username: "user1", password: "password123" },
     { username: "user2", password: "secretword" },
-    { username: "admin", password: "admin123" }
+    { username: "admin", password: "admin123" },
+    { username: "user3", password: "secret123" },
+    { username: "user4", password: "adminword" },
 ];
-const username = "user1";
-const password = "password123";
-console.log(validateUserCredentials(registeredUsers, username, password)); // Output: true
+
+  const search1 = { username: "user2",  password: "secretword"};
+  const search2 = { username: "user5",  password: "secretkey" };
+
+  // Using Array.prototype.some()
+  const resSomeSearch1 = registeredUsers.some(item => JSON.stringify(item) === JSON.stringify(search1));
+  console.log(`resSome(search1): ${resSomeSearch1}`); // outputs: true
+  const resSomeSearch2 = registeredUsers.some(item => JSON.stringify(item) === JSON.stringify(search2));
+  console.log(`resSome(search2): ${resSomeSearch2}`); // outputs: false
+
+//resSome(search1): true
+//resSome(search2): false
